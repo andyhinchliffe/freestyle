@@ -23,9 +23,8 @@ export default function Home() {
   
   
   const handleGenerate = () => {
-
     setQuestion("write a rap verse of less than 100 words in a 90s east coast style , at the end of each rhyming couplet include the words "+firstWord+" and "+secondWord+" and "+thirdWord+" make sure each word is used at the end of the line after the line including the word they are rhymed with") 
-    console.log(question)
+    // console.log(question)
   }
 
   useEffect(() => {
@@ -68,9 +67,11 @@ export default function Home() {
     <input type="text" placeholder="First Word"  onChange={(e) => setFirstWord(e.target.value)} className="mt-6 mx-auto input input-bordered w-full max-w-xs" />
     <input type="text" placeholder="Second Word"  onChange={(e) => setSecondWord(e.target.value)} className="mt-10 mx-auto input input-bordered w-full max-w-xs" />
     <input type="text" placeholder="Third Word"  onChange={(e) => setThirdWord(e.target.value)} className="mt-10 mx-auto input input-bordered w-full max-w-xs" />
-    <button className="btn glass w-full mt-10"  onClick={(e) => {handleGenerate();
+    <button className="btn glass w-full mt-10"  onClick={(e) => {
+      
+      handleGenerate();
        
-      // console.log(question);
+      console.log(question);
       handleSubmit();
   }}
     
