@@ -5,9 +5,9 @@ import { useState } from "react";
 
 
 
-const myAPIKey = process.env.NEXT_PUBLIC_CHATGPT_API_KEY;
 
-const openai = new OpenAI({ apiKey: myAPIKey });
+
+const openai = new OpenAI({ apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY });
 
 export default function Home() {
 
@@ -18,7 +18,7 @@ export default function Home() {
   const [question, setQuestion] = useState("");
   // const [response, setResponse] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const apiKey = process.env.NEXT_PUBLIC_CHATGPT_API_KEY;
+  
 
   
   
