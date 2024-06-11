@@ -3,11 +3,13 @@ import React, { useEffect } from 'react'
 import OpenAI from "openai";
 import { useState } from "react";
 
+import Generator from "./components/Openai"
 
 
 
 
-const openai = new OpenAI({ apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY });
+
+
 
 export default function Home() {
 
@@ -34,25 +36,25 @@ export default function Home() {
   
   
 
-  const handleSubmit = async () => {
+  // const handleSubmit = async () => {
         
-    setIsLoading(true);
-    const completion = await openai.chat.completions.create({
-      messages: [
-        {
-          role: "system",
-          content: "You are a freestyle rap generator.",
-        },
-        { role: "user", content: question },
-      ],
-      model: "gpt-3.5-turbo-0125",
+  //   setIsLoading(true);
+  //   const completion = await openai.chat.completions.create({
+  //     messages: [
+  //       {
+  //         role: "system",
+  //         content: "You are a freestyle rap generator.",
+  //       },
+  //       { role: "user", content: question },
+  //     ],
+  //     model: "gpt-3.5-turbo-0125",
     
       
-    });
-    console.log(completion)
-    setFreestyle(completion.choices[0].message.content);
-    setIsLoading(false);
-  }
+  //   });
+  //   console.log(completion)
+  //   setFreestyle(completion.choices[0].message.content);
+  //   setIsLoading(false);
+  // }
   
  
   console.log(firstWord)
@@ -72,16 +74,19 @@ export default function Home() {
       handleGenerate();
        
       console.log(question);
-      handleSubmit();
+      // handleSubmit();
   }}
     
     >Generate</button>
     {isLoading? <span className="loading loading-bars loading-lg ml-32 mt-2 text-white"></span> : null}
-    <textarea className="textarea textarea-bordered text-mx h-screen mt-6 w-full"  placeholder={freestyle}></textarea>
+    <div className="textarea textarea-bordered text-mx h-screen mt-6 w-full"  placeholder={freestyle}>
+    <Generator question={question}/>
+    </div>
     
     
     </div>
     </div>
+    
     
   </>
   );
